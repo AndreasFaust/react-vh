@@ -1,0 +1,7 @@
+h1 {
+  background: yellow;
+  height: calc(var(--vh, 1vh) * 100);
+}
+h2 {
+  height: calc(var(--vh, 1vh) * 50);
+}
