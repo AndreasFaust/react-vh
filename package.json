@@ -1,6 +1,6 @@
 {
   "name": "react-vh",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Save correct vh in root-variable and use it in CSS.",
   "author": "AndreasFaust",
   "license": "MIT",
