@@ -1,7 +1,12 @@
+body {
+  margin: 0;
+}
 h1 {
+  margin: 0;
   background: yellow;
   height: calc(var(--vh, 1vh) * 100);
 }
 h2 {
+  margin: 0;
   height: calc(var(--vh, 1vh) * 50);
 }
