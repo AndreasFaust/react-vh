@@ -60,9 +60,19 @@ Then use it in your CSS by using `calc` and multiply by your desired percent-num
 .example-wrapper-of-100-vh {
   height: calc(var(--vh, 1vh) * 100);
 }
-
 .example-wrapper-of-50-vh {
   height: calc(var(--vh, 1vh) * 50);
+}
+```
+
+Same procedure also works for `vw`:
+
+```css
+.example-wrapper-of-100-vw {
+  height: calc(var(--vw, 1vw) * 100);
+}
+.example-wrapper-of-50-vw {
+  height: calc(var(--vw, 1vw) * 50);
 }
 ```
 
@@ -74,6 +84,21 @@ If you want to use the complete viewport-size (browser-bar included), take `--vh
 .example-wrapper-of-99-total-viewport-height {
   height: calc(var(--vh-total, 1vh) * 99);
 }
+```
+
+### maxWidth
+
+If the width of your Layout is limited to a `max-width` and you can also limit the `vw`-value to a value, by passing an object with key `maxWidth` to `useVH`:
+
+```jsx
+const MyComponent: React.FC = () => {
+  useVH({ maxWidth: 2400 });
+  return (
+    <div>
+      <h1>This is a Test!</h1>
+    </div>
+  );
+};
 ```
 
 ## What it does and how it works

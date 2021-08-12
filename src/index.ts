@@ -2,10 +2,14 @@ import React from "react";
 import isMobile from "./isMobile";
 import debounce from "./debounce";
 
-export function useVH() {
+interface Props {
+  maxWidth?: number;
+}
+
+export function useVH({ maxWidth }: Props) {
   React.useEffect(() => {
     function setVH() {
-      const { innerHeight, outerHeight } = window;
+      const { innerWidth, innerHeight, outerHeight } = window;
 
       document.documentElement.style.setProperty(
         "--vh",
@@ -16,6 +20,9 @@ export function useVH() {
         "--vh-total",
         outerHeight * 0.01 + "px"
       );
+
+      const width = innerWidth > maxWidth ? maxWidth : innerWidth;
+      document.documentElement.style.setProperty("--vw", width * 0.01 + "px");
     }
 
     const deviceIsMobile = isMobile();
@@ -34,7 +41,7 @@ export function useVH() {
         window.removeEventListener("resize", dSetVH);
       }
     };
-  }, []);
+  }, [maxWidth]);
 }
 
 export default useVH;
