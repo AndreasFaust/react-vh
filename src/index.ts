@@ -6,7 +6,7 @@ interface Props {
   maxWidth?: number;
 }
 
-export function useVH({ maxWidth }: Props) {
+export function useVH({ maxWidth }: Props = {}) {
   React.useEffect(() => {
     function setVH() {
       const { innerWidth, innerHeight, outerHeight } = window;
@@ -21,7 +21,7 @@ export function useVH({ maxWidth }: Props) {
         outerHeight * 0.01 + "px"
       );
 
-      const width = innerWidth > maxWidth ? maxWidth : innerWidth;
+      const width = maxWidth && innerWidth > maxWidth ? maxWidth : innerWidth;
       document.documentElement.style.setProperty("--vw", width * 0.01 + "px");
     }
 
