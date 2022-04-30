@@ -9,7 +9,8 @@ interface Props {
 export function useVH({ maxWidth }: Props = {}) {
   React.useEffect(() => {
     function setVH() {
-      const { innerWidth, innerHeight, outerHeight } = window;
+      const { innerWidth, innerHeight } = window;
+      const outerHeight = window.screen.availHeight;
 
       document.documentElement.style.setProperty(
         "--vh",
