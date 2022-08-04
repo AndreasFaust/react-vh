@@ -31,15 +31,14 @@ export function useVH({ maxWidth }: Props = {}) {
 
     if (deviceIsMobile) {
       window.addEventListener("orientationchange", dSetVH);
-    } else {
-      window.addEventListener("resize", dSetVH);
-    }
+    } 
+    window.addEventListener("resize", dSetVH);
+    
     return () => {
       if (deviceIsMobile) {
         window.removeEventListener("orientationchange", dSetVH);
-      } else {
-        window.removeEventListener("resize", dSetVH);
-      }
+      } 
+      window.removeEventListener("resize", dSetVH);
     };
   }, [maxWidth]);
 }
